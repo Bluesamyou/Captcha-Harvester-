@@ -96,14 +96,13 @@ class Harvestor():
 
         try:
 
-            # print(self.S.get('http://2captcha.com/in.php?key={}&method=userrecaptcha&googlekey={}&pageurl={}&here=now'.format(apikey,sitekey,url)).text)
-            #
-            # twoCaptcha = TwoCaptcha(apikey)
-            # recaptcha_token = twoCaptcha.solve_captcha(site_key=sitekey, page_url=url)
+
+            twoCaptcha = TwoCaptcha(apikey)
+            recaptcha_token = twoCaptcha.solve_captcha(site_key=sitekey, page_url=url)
 
             token = {
                         "time" : datetime.now().strftime('%y %m %d %I:%M%p'),
-                        "token" : randint(0,100),
+                        "token" : recaptcha_token,
                         "claimed"  : False
                     }
 
